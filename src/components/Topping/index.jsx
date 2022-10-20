@@ -4,24 +4,18 @@ import './style.css';
 
 
 //handleToppingChange prop
-const Topping = ({ topping }) => {
+const Topping = ({ topping, onSelectChange }) => {
 
-  const [checked, setChecked] = useState(false);
-
-  //new
-  //const handleChange = (newChecked) => {
-  //  setChecked(newChecked)
-  //  console.log(checked)
+  //prvni predani => funkcni
+  //const [checked, setChecked] = useState(false);
+  //const handleClick = (newValue) => {
+  //  setChecked(newValue)
+  //  console.log(newValue)
   //}
-
-  const handleClick = (newValue) => {
-    setChecked(newValue)
-    console.log(newValue)
-  }
 
   return (
     <div className="topping">
-      <Check value = {checked} onClick = {handleClick} />
+      <Check checked = {topping.selected} onChange = {onSelectChange} />
       <span className="topping__content">
         {topping.name}: {topping.price} €
       </span>

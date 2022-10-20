@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import './style.css';
 
-const Check = ( {value, onClick}) => {
+const Check = ( {checked, onChange}) => {
   
   
   const handleClick = () => {
-    onClick(!value);
+    onChange(!checked);
+    console.log(!checked)
+    
   };
   
   return (
@@ -13,9 +15,12 @@ const Check = ( {value, onClick}) => {
       className="check"
       onClick={handleClick}
     >
-      {value ? '✓' : ''}
+      {checked ? '✓' : ''}
     </button>
   )
 };
 
 export default Check;
+
+
+//
