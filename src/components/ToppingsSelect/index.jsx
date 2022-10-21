@@ -16,12 +16,23 @@ const ToppingsSelect = ({ toppings }) => {
  }
 
  let toppingsCount = 0;
- cartToppings.forEach((toppings) => toppingsCount += toppings.selected );
+ let toppingsPriceTotal = 0;
+ 
+ cartToppings
+  .filter( (ingredience) => ingredience.selected === true )
+  .forEach((e) => toppingsCount += 1 );
+
+  cartToppings
+  .filter( (ingredience) => ingredience.selected === true )
+  .forEach((toppingsPrice) => toppingsPriceTotal +=  toppingsPrice.price );
+
+
+
 
   return (
     <>
       <p>Choose as many toppings as you want</p>
-      <p>Selected topping: {toppingsCount}, total price: {toppingsPrice} Euro</p>
+      <p>Selected topping: {toppingsCount}, total price: {toppingsPriceTotal} Euro</p>
         
       <div className="toppings">
         {toppings.map((topping , index) => (
